@@ -19,12 +19,9 @@ extension AdventOfCode.Day1 {
         @OptionGroup var options: AdventOfCode.Options
 
         mutating func run() { 
-            let input = options.input
-            let lines = input.components(separatedBy: .newlines)
-
             var combinedNumbers: [Int] = []
 
-            for line in lines {
+            for line in options.lines {
                 let numbers = line.compactMap { $0.wholeNumberValue }
 
                 guard let first = numbers.first, let last = numbers.last else {
@@ -64,12 +61,9 @@ extension AdventOfCode.Day1 {
         @OptionGroup var options: AdventOfCode.Options
 
         mutating func run() { 
-            let input = options.input
-            let lines = input.components(separatedBy: .newlines)
-            
-            var combinedNumbers: [Int] = []
+var combinedNumbers: [Int] = []
 
-            for var line in lines {
+            for var line in options.lines {
                 for (index, speltNumberString) in speltNumbersStrings.enumerated() {
                     line = line.replacingOccurrences(of: speltNumberString, with: String("\(speltNumberString.first!)\(index + 1)\(speltNumberString.last!)"))
                 }

@@ -15,6 +15,10 @@ struct AdventOfCode: ParsableCommand {
       try! String(contentsOf: inputFile)
     }
 
+    var lines: [String] {
+      input.components(separatedBy: .newlines)
+    }
+
     func validate() throws {
       guard FileManager.default.fileExists(atPath: inputFile.path) else {
         throw ValidationError("The input file does not exist")
